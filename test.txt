@@ -1,0 +1,11 @@
+This is test file created on exp branch to understand concept of merging 
+and branches.
+
+OK have a nice day
+
+Take care 
+
+HAve fun
+
+
+remeber its fun fun fun !!.
