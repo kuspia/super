@@ -104,7 +104,7 @@ However, if you are lazy (and you probably are, like me :D), you can use the ini
     Example:
     If I want to use neural networks to classify whether someone is sick or not using the some dataset,
     then I would use this command to initialize a yaml file note that you may need to rename outcome column in .csv to sick:
-    $ igel init -type "classification" -model "NeuralNetwork" -target "sick"
+    $ init -type "classification" -model "NeuralNetwork" -target "sick"
     """
     $ init
 
@@ -149,7 +149,7 @@ a list of available arguments and how to use these.
 Train a model
 ##############
 
-- The expected way to use igel is from terminal:
+- The expected way to use ML_solver is from terminal:
 
 Run this command in terminal to fit/train a model, where you provide the **path to your dataset** and the **path to the yaml file**
 
