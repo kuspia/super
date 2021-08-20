@@ -79,7 +79,7 @@ You can run the help command to get instructions:
     
 - Demo:
 
-.. image:: ../assets/igel-help.gif
+.. image:: ../gif/a.gif
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ check it out and modify it if you want to, otherwise you can also create everyth
 
 - Demo:
 
-.. image:: ../assets/igel-init.gif
+.. image:: ../gif/b.gif
 
 -----------------------------------------------------------------------------------------------------------
 
@@ -169,7 +169,7 @@ Run this command in terminal to fit/train a model, where you provide the **path 
 
 - Demo:
 
-.. image:: ../assets/igel-fit.gif
+.. image:: ../gif/c.gif
 
 --------------------------------------------------------------------------------------------------------
 
@@ -187,7 +187,7 @@ You can then evaluate the trained/pre-fitted model:
 
 - Demo:
 
-.. image:: ../assets/igel-eval.gif
+.. image:: ../gif/d.gif
 
 ------------------------------------------------------------------------------------------------------
 
@@ -205,7 +205,7 @@ Finally, you can use the trained/pre-fitted model to make predictions if you are
 
 - Demo:
 
-.. image:: ../assets/igel-pred.gif
+.. image:: ../gif/e.gif
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -224,7 +224,7 @@ You can combine the train, evaluate and predict phases using one single command 
 
 - Demo:
 
-.. image:: ../assets/igel-experiment.gif
+.. image:: ../gif/f.gif
 
 
 Interactive Mode
