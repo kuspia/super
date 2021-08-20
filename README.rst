@@ -1,44 +1,7 @@
-====
-igel
-====
+=================================================================
+ML_solver: A powerful automated CLI based script for ML models
+=================================================================
 
-|
-
-.. image:: https://img.shields.io/pypi/v/igel?color=green
-        :alt: PyPI
-        :target: https://pypi.python.org/pypi/igel
-.. image:: https://img.shields.io/github/workflow/status/nidhaloff/igel/build
-        :target: https://github.com/nidhaloff/igel/actions/workflows/build.yml
-        :alt: GitHub Workflow Status
-.. image:: https://pepy.tech/badge/igel
-        :target: https://pepy.tech/project/igel
-.. image:: https://readthedocs.org/projects/igel/badge/?version=latest
-        :target: https://igel.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-.. image:: https://img.shields.io/pypi/wheel/igel
-        :alt: PyPI - Wheel
-        :target: https://pypi.python.org/pypi/igel
-
-
-.. image:: https://img.shields.io/github/stars/nidhaloff/igel?style=social
-        :alt: GitHub Repo stars
-        :target: https://pypi.python.org/pypi/igel
-
-.. image:: https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FNidhalBaccouri
-        :alt: Twitter URL
-        :target: https://twitter.com/NidhalBaccouri
-
-|
-
-A delightful machine learning tool that allows you to train/fit, test and use models **without writing code**
-
-.. note::
-    I'm also working on a GUI desktop app for igel based on people's requests. You can find it under
-    `Igel-UI <https://github.com/nidhaloff/igel-ui/>`_. Please consider supporting the project!
-
-* Free software: MIT license
-* Documentation: https://igel.readthedocs.io.
 
 .. contents:: Table of Contents
     :depth: 3
@@ -818,55 +781,7 @@ You can also find a cross validation and a hyperparameter search examples in the
 I suggest you play around with the examples and igel cli. However,
 you can also directly execute the fit.py, evaluate.py and predict.py if you want to.
 
-GUI
-----
-
-You can also run the igel UI if you are not familiar with the terminal. Just install igel on your machine
-as mentioned above. Then run this single command in your terminal
-
-.. code-block:: console
-
-    $ igel gui
-
-This will open up the gui, which is very simple to use. Check examples of how the gui looks like and how to use it
-here: https://github.com/nidhaloff/igel-ui
-
-
-Links
-------
-
-- Article: https://medium.com/@nidhalbacc/machine-learning-without-writing-code-984b238dd890
 
 
 
-Help/GetHelp
----------------
 
-If you are facing any problems, please feel free to open an issue.
-Additionally, you can make contact with the author for further information/questions.
-
-Do you like igel?
-You can always help the development of this project by:
-
-- Following on github and/or twitter
-- Star the github repo
-- Watch the github repo for new releases
-- Tweet about the package
-- Help others with issues on github
-- Create issues and pull requests
-- Sponsor the project
-
-Contributions
---------------
-
-You think this project is useful and you want to bring new ideas, new features, bug fixes, extend the docs?
-
-Contributions are always welcome.
-Make sure you read `the guidelines <https://igel.readthedocs.io/en/latest/contributing.html>`_ first
-
-License
---------
-
-MIT license
-
-Copyright (c) 2020-present, Nidhal Baccouri
