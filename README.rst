@@ -102,13 +102,13 @@ However, if you are lazy (and you probably are, like me :D), you can use the ini
     -target: target you want to predict
     
     Example:
-    If I want to use neural networks to classify whether someone is sick or not using the indian-diabetes dataset,
-    then I would use this command to initialize a yaml file n.b. you may need to rename outcome column in .csv to sick:
+    If I want to use neural networks to classify whether someone is sick or not using the some dataset,
+    then I would use this command to initialize a yaml file note that you may need to rename outcome column in .csv to sick:
     $ igel init -type "classification" -model "NeuralNetwork" -target "sick"
     """
-    $ igel init
+    $ init
 
-After running the command, an igel.yaml file will be created for you in the current working directory. You can
+After running the command, an ML_solver.yaml file will be created for you in the current working directory. You can
 check it out and modify it if you want to, otherwise you can also create everything from scratch.
 
 - Demo:
@@ -141,7 +141,7 @@ I used the famous indian diabetes in this example `indian-diabetes dataset <http
 
 Notice that I passed :code:`n_estimators` and :code:`max_depth` as additional arguments to the model.
 If you don't provide arguments then the default will be used.
-You don't have to memorize the arguments for each model. You can always run :code:`igel models` in your terminal, which will
+You don't have to memorize the arguments for each model. You can always run :code:`models` in your terminal, which will
 get you to interactive mode, where you will be prompted to enter the model you want to use and type of the problem
 you want to solve. Igel will then show you information about the model and a link that you can follow to see
 a list of available arguments and how to use these.
@@ -149,17 +149,17 @@ a list of available arguments and how to use these.
 Train a model
 ##############
 
-- The expected way to use igel is from terminal (igel CLI):
+- The expected way to use igel is from terminal:
 
 Run this command in terminal to fit/train a model, where you provide the **path to your dataset** and the **path to the yaml file**
 
 .. code-block:: console
 
-    $ igel fit --data_path 'path_to_your_csv_dataset.csv' --yaml_path 'path_to_your_yaml_file.yaml'
+    $ fit --data_path 'path_to_your_csv_dataset.csv' --yaml_path 'path_to_your_yaml_file.yaml'
 
-    # or shorter
+    # or 
 
-    $ igel fit -dp 'path_to_your_csv_dataset.csv' -yml 'path_to_your_yaml_file.yaml'
+    $ fit -dp 'path_to_your_csv_dataset.csv' -yml 'path_to_your_yaml_file.yaml'
 
     """
     That's it. Your "trained" model can be now found in the model_results folder
@@ -180,9 +180,9 @@ You can then evaluate the trained/pre-fitted model:
 
 .. code-block:: console
 
-    $ igel evaluate -dp 'path_to_your_evaluation_dataset.csv'
+    $ evaluate -dp 'path_to_your_evaluation_dataset.csv'
     """
-    This will automatically generate an evaluation.json file in the current directory, where all evaluation results are stored
+    This will automatically generate an evaluation.json file in the current directory, where all evaluation results are stored.
     """
 
 - Demo:
@@ -198,7 +198,7 @@ Finally, you can use the trained/pre-fitted model to make predictions if you are
 
 .. code-block:: console
 
-    $ igel predict -dp 'path_to_your_test_dataset.csv'
+    $ predict -dp 'path_to_your_test_dataset.csv'
     """
     This will generate a predictions.csv file in your current directory, where all predictions are stored in a csv file
     """
@@ -206,8 +206,6 @@ Finally, you can use the trained/pre-fitted model to make predictions if you are
 - Demo:
 
 .. image:: ../assets/igel-pred.gif
-
-.. image:: ../assets/igel-predict.gif
 
 ----------------------------------------------------------------------------------------------------------
 
@@ -218,7 +216,7 @@ You can combine the train, evaluate and predict phases using one single command 
 
 .. code-block:: console
 
-    $ igel experiment -DP "path_to_train_data path_to_eval_data path_to_test_data" -yml "path_to_yaml_file"
+    $ experiment -DP "path_to_train_data path_to_eval_data path_to_test_data" -yml "path_to_yaml_file"
 
     """
     This will run fit using train_data, evaluate using eval_data and further generate predictions using the test_data
@@ -228,73 +226,9 @@ You can combine the train, evaluate and predict phases using one single command 
 
 .. image:: ../assets/igel-experiment.gif
 
-Use igel from python (instead of terminal)
-###########################################
-
-- Alternatively, you can also write code if you want to:
-
-..  code-block:: python
-
-    from igel import Igel
-
-    Igel(cmd="fit", data_path="path_to_your_dataset", yaml_path="path_to_your_yaml_file")
-    """
-    check the examples folder for more
-    """
-
-
-----------------------------------------------------------------------------------------------------------
-
-Serve the model
-#################
-
-The next step is to use your model in production. Igel helps you with this task too by providing the serve command.
-Running the serve command will tell igel to serve your model. Precisely, igel will automatically build
-a REST server and serve your model on a specific host and port, which you can configure by passing these as
-cli options.
-
-The easiest way is to run:
-
-.. code-block:: console
-
-    $ igel serve --model_results_dir "path_to_model_results_directory"
-
-Notice that igel needs the **--model_results_dir** or shortly -res_dir cli option in order to load the model and start the server.
-By default, igel will serve your model on **localhost:8000**, however, you can easily override this by providing a host
-and a port cli options.
-
-.. code-block:: console
-
-    $ igel serve --model_results_dir "path_to_model_results_directory" --host "127.0.0.1" --port 8000
-
-Igel uses `FastAPI <https://fastapi.tiangolo.com/>`_ for creating the REST server, which is a modern high performance
-framework
-and `uvicorn <https://www.uvicorn.org/>`_ to run it under the hood.
-
-----------------------------------------------------------------------------------------------------------
-
-
-Use igel from python (instead of terminal)
-###########################################
-
-- Alternatively, you can also write code if you want to:
-
-..  code-block:: python
-
-    from igel import Igel
-
-    Igel(cmd="fit", data_path="path_to_your_dataset", yaml_path="path_to_your_yaml_file")
-    """
-    check the examples folder for more
-    """
-
-----------------------------------------------------------------------------------------------------------
-
 
 Interactive Mode
 ------------------
-
-Interactive mode is new in >= v0.2.6
 
 This mode basically offers you the freedom to write arguments on your way.
 You are not restricted to write the arguments directly when using the command.
@@ -304,95 +238,9 @@ without specifying any additional arguments. For example:
 
 ..  code-block:: python
 
-    igel fit
+    fit
 
 if you just write this and click enter, you will be prompted to provide the additional mandatory arguments.
-Any version <= 0.2.5 will throw an error in this case, which why you need to make sure that you have
-a >= 0.2.6 version.
-
-- Demo (init command):
-
-.. image:: ../assets/igel-init-interactive.gif
-
-- Demo (fit command):
-
-.. image:: ../assets/igel-fit-interactive.gif
-
-As you can see, you don't need to memorize the arguments, you can just let igel ask you to enter them.
-Igel will provide you with a nice message explaining which argument you need to enter.
-
-The value between brackets represents the default value. This means if you provide no value and hit return,
-then the value between brackets will be taken as the default value.
-
-Overview
-----------
-The main goal of igel is to provide you with a way to train/fit, evaluate and use models without writing code.
-Instead, all you need is to provide/describe what you want to do in a simple yaml file.
-
-Basically, you provide description or rather configurations in the yaml file as key value pairs.
-Here is an overview of all supported configurations (for now):
-
-.. code-block:: yaml
-
-    # dataset operations
-    dataset:
-        type: csv  # [str] -> type of your dataset
-        read_data_options: # options you want to supply for reading your data (See the detailed overview about this in the next section)
-            sep:  # [str] -> Delimiter to use.
-            delimiter:  # [str] -> Alias for sep.
-            header:     # [int, list of int] -> Row number(s) to use as the column names, and the start of the data.
-            names:  # [list] -> List of column names to use
-            index_col: # [int, str, list of int, list of str, False] -> Column(s) to use as the row labels of the DataFrame,
-            usecols:    # [list, callable] -> Return a subset of the columns
-            squeeze:    # [bool] -> If the parsed data only contains one column then return a Series.
-            prefix:     # [str] -> Prefix to add to column numbers when no header, e.g. ‘X’ for X0, X1, …
-            mangle_dupe_cols:   # [bool] -> Duplicate columns will be specified as ‘X’, ‘X.1’, …’X.N’, rather than ‘X’…’X’. Passing in False will cause data to be overwritten if there are duplicate names in the columns.
-            dtype:  # [Type name, dict maping column name to type] -> Data type for data or columns
-            engine:     # [str] -> Parser engine to use. The C engine is faster while the python engine is currently more feature-complete.
-            converters: # [dict] -> Dict of functions for converting values in certain columns. Keys can either be integers or column labels.
-            true_values: # [list] -> Values to consider as True.
-            false_values: # [list] -> Values to consider as False.
-            skipinitialspace: # [bool] -> Skip spaces after delimiter.
-            skiprows: # [list-like] -> Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file.
-            skipfooter: # [int] -> Number of lines at bottom of file to skip
-            nrows: # [int] -> Number of rows of file to read. Useful for reading pieces of large files.
-            na_values: # [scalar, str, list, dict] ->  Additional strings to recognize as NA/NaN.
-            keep_default_na: # [bool] ->  Whether or not to include the default NaN values when parsing the data.
-            na_filter: # [bool] -> Detect missing value markers (empty strings and the value of na_values). In data without any NAs, passing na_filter=False can improve the performance of reading a large file.
-            verbose: # [bool] -> Indicate number of NA values placed in non-numeric columns.
-            skip_blank_lines: # [bool] -> If True, skip over blank lines rather than interpreting as NaN values.
-            parse_dates: # [bool, list of int, list of str, list of lists, dict] ->  try parsing the dates
-            infer_datetime_format: # [bool] -> If True and parse_dates is enabled, pandas will attempt to infer the format of the datetime strings in the columns, and if it can be inferred, switch to a faster method of parsing them.
-            keep_date_col: # [bool] -> If True and parse_dates specifies combining multiple columns then keep the original columns.
-            dayfirst: # [bool] -> DD/MM format dates, international and European format.
-            cache_dates: # [bool] -> If True, use a cache of unique, converted dates to apply the datetime conversion.
-            thousands: # [str] -> the thousands operator
-            decimal: # [str] -> Character to recognize as decimal point (e.g. use ‘,’ for European data).
-            lineterminator: # [str] -> Character to break file into lines.
-            escapechar: # [str] ->  One-character string used to escape other characters.
-            comment: # [str] -> Indicates remainder of line should not be parsed. If found at the beginning of a line, the line will be ignored altogether. This parameter must be a single character.
-            encoding: # [str] -> Encoding to use for UTF when reading/writing (ex. ‘utf-8’).
-            dialect: # [str, csv.Dialect] -> If provided, this parameter will override values (default or not) for the following parameters: delimiter, doublequote, escapechar, skipinitialspace, quotechar, and quoting
-            delim_whitespace: # [bool] -> Specifies whether or not whitespace (e.g. ' ' or '    ') will be used as the sep
-            low_memory: # [bool] -> Internally process the file in chunks, resulting in lower memory use while parsing, but possibly mixed type inference.
-            memory_map: # [bool] -> If a filepath is provided for filepath_or_buffer, map the file object directly onto memory and access the data directly from there. Using this option can improve performance because there is no longer any I/O overhead.
-
-        random_numbers: # random numbers options in case you wanted to generate the same random numbers on each run
-            generate_reproducible:  # [bool] -> set this to true to generate reproducible results
-            seed:   # [int] -> the seed number is optional. A seed will be set up for you if you didn't provide any
-
-        split:  # split options
-            test_size: 0.2  #[float] -> 0.2 means 20% for the test data, so 80% are automatically for training
-            shuffle: true   # [bool] -> whether to shuffle the data before/while splitting
-            stratify: None  # [list, None] -> If not None, data is split in a stratified fashion, using this as the class labels.
-
-        preprocess: # preprocessing options
-            missing_values: mean    # [str] -> other possible values: [drop, median, most_frequent, constant] check the docs for more
-            encoding:
-                type: oneHotEncoding  # [str] -> other possible values: [labelEncoding]
-            scale:  # scaling options
-                method: standard    # [str] -> standardization will scale values to have a 0 mean and 1 standard deviation  | you can also try minmax
-                target: inputs  # [str] -> scale inputs. | other possible values: [outputs, all] # if you choose all then all values in the dataset will be scaled
 
 
     # model definition
