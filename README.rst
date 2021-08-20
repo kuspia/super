@@ -19,11 +19,6 @@ Intro
 All you need is a **yaml** (or **json**) file, where you need to describe what you are trying to do. That's it!
 ML_solver supports all sklearn's machine learning functionality, whether regression, classification or clustering.
 
-Before going ahead let's do it:
-## Installation
-All possible modules that may be needed are putted in requirement file\
-Simply `pip3 install -r requirements.txt` to add required packages.
-
  Unlike other ML tools, ML_solver is lightweight in the sense that it has minimal dependencies.
  Precisely, ML_solver uses pandas in the background for data manipulation/preprocessing and sklearn for the machine
  learning part. Hence, it depends only on these two famous packages.
