@@ -65,24 +65,18 @@ ML_solver's supported models:
 Quick Start
 ------------
 
-
-Run :code:`igel version` to check the version.
-
-Run :code:`igel info` to get meta data about the project.
+Run :code:`info` to get meta data about the project.
 
 You can run the help command to get instructions:
 
 .. code-block:: console
 
-    $ igel --help
+    $ --help
 
-    # or just
+    # or 
 
-    $ igel -h
-    """
-    Take some time and read the output of help command. You ll save time later if you understand how to use igel.
-    """
-
+    $ -h
+    
 - Demo:
 
 .. image:: ../assets/igel-help.gif
@@ -94,24 +88,19 @@ Configuration
 
 First step is to provide a yaml file (you can also use json if you want)
 
-You can do this manually by creating a .yaml file (called igel.yaml by convention but you can name if whatever you want)
+You can do this manually by creating a .yaml file (called ML_solver.yaml by convention but you can name if whatever you want)
 and editing it yourself.
-However, if you are lazy (and you probably are, like me :D), you can use the igel init command to get started fast,
-which will create a basic config file for you on the fly.
-
-
-
+However, if you are lazy (and you probably are, like me :D), you can use the init command to get started fast.
 
 .. code-block:: console
 
     """
-    igel init <args>
-    possible optional args are: (notice that these args are optional, so you can also just run igel init if you want)
+    init <args>
+    possible optional args are: (notice that these args are optional, so you can also just run init if you want)
     -type: regression, classification or clustering
     -model: model you want to use
     -target: target you want to predict
-
-
+    
     Example:
     If I want to use neural networks to classify whether someone is sick or not using the indian-diabetes dataset,
     then I would use this command to initialize a yaml file n.b. you may need to rename outcome column in .csv to sick:
