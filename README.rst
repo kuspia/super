@@ -9,99 +9,24 @@ ML_solver: A powerful automated CLI based script for ML models
 |
 |
 
-Motivation & Goal
-------------------
-
-The goal of the project is to provide machine learning for **everyone**, both technical and non-technical
-users.
-
-I needed a tool sometimes, which I can use to fast create a machine learning prototype. Whether to build
-some proof of concept or create a fast draft model to prove a point. I find myself often stuck at writing
-boilerplate code and/or thinking too much of how to start this.
-
-Therefore, I decided to create **igel**. Hopefully, it will make it easier for technical and non-technical
-users to build machine learning models.
-
-Features
----------
-- Usage from GUI
-- Supports most dataset types (csv, txt, excel, json, html)
-- Supports all state of the art machine learning models (even preview models)
-- Supports different data preprocessing methods
-- Provides flexibility and data control while writing configurations
-- Supports cross validation
-- Supports both hyperparameter search (version >= 0.2.8)
-- Supports yaml and json format
-- Supports different sklearn metrics for regression, classification and clustering
-- Supports multi-output/multi-target regression and classification
-- Supports multi-processing for parallel model construction
+Goal
+----
+ML plays a very important role, but everytime writing a boilerplate code is hectic and moreover we always want to figure out the best model for our data.
+Therefore, I decided to create **ML_solver**, which provides a user friendly command line interface to train, predict, evaluate ML models.
 
 Intro
 --------
-
-igel is built on top of scikit-learn. It provides a simple way to use machine learning without writing
-a **single line of code**.
-
 All you need is a **yaml** (or **json**) file, where you need to describe what you are trying to do. That's it!
+ML_solver supports all sklearn's machine learning functionality, whether regression, classification or clustering.
 
-Igel supports all sklearn's machine learning functionality, whether regression, classification or clustering.
-Precisely, you can use **63** different machine learning models in igel.
-
-Igel supports most used dataset types in the data science field. For instance, your input dataset can be
-a csv, txt, excel sheet, json or even html file that you want to fetch. All these types are supported by igel.
-In the background, igel uses pandas to read and convert your input dataset to a dataframe.
-
- Unlike other ML tools, igel is lightweight in the sense that it has minimal dependencies.
- Precisely, igel uses pandas in the background for data manipulation/preprocessing and sklearn for the machine
+ Unlike other ML tools, ML_solver is lightweight in the sense that it has minimal dependencies.
+ Precisely, ML_solver uses pandas in the background for data manipulation/preprocessing and sklearn for the machine
  learning part. Hence, it depends only on these two famous packages.
-
-Installation
--------------
-
-- The easiest way is to install igel using `pip <https://packaging.python.org/guides/tool-recommendations/>`_
-
-.. code-block:: console
-
-    $ pip install -U igel
-
-- Check the docs for other ways to install igel from source
-
-Running with Docker
---------------------
-
-- Use the official image (recommended):
-
-You can pull the image first from docker hub
-
-.. code-block:: console
-
-    $ docker pull nidhaloff/igel
-
-Then use it:
-
-.. code-block:: console
-
-    $ docker run -it --rm -v $(pwd):/data nidhaloff/igel fit -yml 'your_file.yaml' -dp 'your_dataset.csv'
-
-
-- Alternatively, you can create your own image locally if you want:
-
-You can run igel inside of docker by first building the image:
-
-.. code-block:: console
-
-    $ docker build -t igel .
-
-And then running it and attaching your current directory (does not need to be the igel directory) as /data (the workdir) inside of the container:
-
-.. code-block:: console
-
-    $ docker run -it --rm -v $(pwd):/data igel fit -yml 'your_file.yaml' -dp 'your_dataset.csv'
 
 Models
 -------
 
-Igel's supported models:
+ML_solver's supported models:
 
 .. code-block:: console
 
